@@ -46,14 +46,15 @@ while ret:
         pass
 
     if circles is not None:
-        if len(circles) == 1:
+        NumberOfCircles = circles.shape[1]
+        if NumberOfCircles == 1:
             for i in circles[0, :]:
                 Circle.x = i[0]
                 Circle.y = i[1]
                 Circle.z = i[2]
-            status = ('%s %s' % (str(circles.shape[1]), 'circles'))
-        elif len(circles) > 1:
-            status = ('%s %s' % (str(circles.shape[1]), 'circles'))
+            status = ('%s %s' % (NumberOfCircles, 'circle'))
+        elif circles.shape[1] > 1:
+            status = ('%s %s' % (NumberOfCircles, 'circles'))
     elif circles is None:
         status = "No circles found"
         Circle.x = None
